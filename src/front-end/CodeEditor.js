@@ -15,7 +15,7 @@ export class CodeEditor extends React.Component {
         this.consoleRef = React.createRef()
 
         this.run_code = this.run_code.bind(this)
-        this.set_example = this.set_example.bind(this)
+        this.set_editor_code = this.set_editor_code.bind(this)
     }
 
     communicateWithApi(source_code) {
@@ -38,6 +38,7 @@ export class CodeEditor extends React.Component {
 
     componentDidMount() {
         console.log("mounted")
+        this.set_editor_code('print("Spearmint template output")')
         this.communicateWithApi('print("Spearmint template output")')
     }
 
@@ -47,8 +48,8 @@ export class CodeEditor extends React.Component {
         this.communicateWithApi(source_code)
     }
 
-    set_example(value) {
-        
+    set_editor_code(sample_code) {
+        this.aceRef.current.editor.getSession().setValue(sample_code)
     }
 
     render() {
@@ -83,7 +84,7 @@ export class CodeEditor extends React.Component {
     
                 <div className="options">
                     <label htmlFor="example-selector">Examples:</label>
-                    <select name="example-selector" id="example-selector" onChange={(value) => this.set_example}>
+                    <select name="example-selector" id="example-selector" onChange={(event) => console.log(event.target.value)}>
                         <option value="FizzBuzz">FizzBuzz</option>
                         <option value="Variables">Variables</option>
                         <option value="Loops">Loops</option>
