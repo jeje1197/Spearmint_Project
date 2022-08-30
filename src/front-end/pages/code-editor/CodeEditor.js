@@ -134,15 +134,15 @@ class Options extends React.Component {
 
         return (
             <div className="options">
-                    <label htmlFor="example-selector">Examples: </label>
-                    <select name="example-selector" onChange={set_example}>
-                        <option value="FizzBuzz">FizzBuzz</option>
-                        <option value="Variables">Variables</option>
-                        <option value="Loops">Loops</option>
-                        <option value="Functions">Functions</option>
-                    </select>
-                    <button className="run-button" type="button" onClick={run_code}>Run</button>
-                </div>
+                <label htmlFor="example-selector">Examples: </label>
+                <select name="example-selector" onChange={set_example}>
+                    <option value="FizzBuzz">FizzBuzz</option>
+                    <option value="Variables">Variables</option>
+                    <option value="Loops">Loops</option>
+                    <option value="Functions">Functions</option>
+                </select>
+                <button type="button" onClick={run_code}>Run</button>
+            </div>
         )
     }
 }

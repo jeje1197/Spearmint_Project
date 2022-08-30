@@ -1,5 +1,6 @@
 import './NavBar.css'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import { AiFillGithub } from 'react-icons/ai'
 
 export default function NavBar() {
     return <nav className="nav">
@@ -8,6 +9,11 @@ export default function NavBar() {
             <CustomLink to="/">Code Editor</CustomLink>
             <CustomLink to="/docs">Docs</CustomLink>
             <CustomLink to="/about">About</CustomLink>
+            <li>
+                <a href='https://github.com/jeje1197'>
+                    <AiFillGithub size={50}/>
+                </a>
+            </li>
         </ul>
     </nav>
 }
