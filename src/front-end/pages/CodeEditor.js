@@ -8,7 +8,7 @@ import 'ace-builds/src-noconflict/ext-language_tools';
 import { examples } from './examples'; // Map containing the example code
 
 
-export class CodeEditor extends React.Component {
+export default class CodeEditor extends React.Component {
 
     constructor(props) {
         super(props)
@@ -48,7 +48,7 @@ export class CodeEditor extends React.Component {
 
     // Must bind to context 'this'
     run_code() {
-        console.log("clicked run")
+        // console.log("clicked run")
         const source_code = this.aceRef.current.editor.getValue() // Text from ace editor
         this.communicateWithApi(source_code)
     }
@@ -69,8 +69,8 @@ export class CodeEditor extends React.Component {
                 <section id="introduction">
                     <p>Spearmint is a high-level, dynamically-typed programming language.</p>
                 </section>
+                <hr/>
             
-    
                 <div className="CodeEditor">
                     <AceEditor
                         ref={this.aceRef}
@@ -78,12 +78,10 @@ export class CodeEditor extends React.Component {
                         placeholder="Enter code here"
                         mode="javascript"
                         theme="twilight"
-                        name="blah2"
                         fontSize={20}
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
-                        value={""}
                         setOptions={{
                         showLineNumbers: true,
                         tabSize: 4,
@@ -125,13 +123,7 @@ class MultiLineText extends React.Component {
     render() {
         var { text } = this.props
 
-        return (
-            text.split("\n").map((text, idx) => {
-                return (<span key={idx}>
-                    {text}<br/>
-                    </span>)
-                }
-            )
+        return (<span style={{ whiteSpace: "pre" }}>{text}</span>
         )
     }
 }
@@ -142,7 +134,7 @@ class Options extends React.Component {
 
         return (
             <div className="options">
-                    <label htmlFor="example-selector">Examples:</label>
+                    <label htmlFor="example-selector">Examples: </label>
                     <select name="example-selector" onChange={set_example}>
                         <option value="FizzBuzz">FizzBuzz</option>
                         <option value="Variables">Variables</option>
