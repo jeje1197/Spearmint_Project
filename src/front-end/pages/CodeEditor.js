@@ -66,7 +66,7 @@ export default class CodeEditor extends React.Component {
         return (
             <div>
                 <h1>Spearmint Code Editor</h1>
-                <section id="introduction">
+                <section className="introduction">
                     <p>Spearmint is a high-level, dynamically-typed programming language.</p>
                 </section>
                 <hr/>
