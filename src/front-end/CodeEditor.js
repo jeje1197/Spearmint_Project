@@ -1,9 +1,9 @@
 import './CodeEditor.css'
 import * as React from 'react'
-import AceEditor from "react-ace";
+import AceEditor from 'react-ace';
 
-import "ace-builds/src-noconflict/theme-twilight";
-import "ace-builds/src-noconflict/ext-language_tools";
+import 'ace-builds/src-noconflict/theme-twilight';
+import 'ace-builds/src-noconflict/ext-language_tools';
 
 import { examples } from './examples'; // Map containing the example code
 
@@ -40,7 +40,7 @@ export class CodeEditor extends React.Component {
     }
 
     componentDidMount() {
-        console.log("mounted")
+        // console.log("mounted")
         const first_example = examples.get('FizzBuzz')
         this.set_editor_code(first_example)
         this.communicateWithApi(first_example)
@@ -48,6 +48,7 @@ export class CodeEditor extends React.Component {
 
     // Must bind to context 'this'
     run_code() {
+        console.log("clicked run")
         const source_code = this.aceRef.current.editor.getValue() // Text from ace editor
         this.communicateWithApi(source_code)
     }
@@ -57,7 +58,7 @@ export class CodeEditor extends React.Component {
     }
 
     set_example(event) {
-        console.log("Example changed:", event.target.value, examples.get(event.target.value))
+        // console.log("Example changed:", event.target.value, examples.get(event.target.value))
         this.set_editor_code(examples.get(event.target.value))
     }
 
@@ -90,24 +91,15 @@ export class CodeEditor extends React.Component {
 
                     <Console ref={this.consoleRef}/>
                 </div>
-    
-                <div className="options">
-                    <label htmlFor="example-selector">Examples:</label>
-                    <select name="example-selector" onChange={this.set_example}>
-                        <option value="FizzBuzz">FizzBuzz</option>
-                        <option value="Variables">Variables</option>
-                        <option value="Loops">Loops</option>
-                        <option value="Functions">Functions</option>
-                    </select>
-                    <button className="run-button" type="button" onClick={this.run_code}>Run</button>
-                </div>
+
+                <Options set_example={this.set_example} run_code={this.run_code}/>
             </div>
         )
     }
 }
 
-export class Console extends React.Component {
 
+class Console extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -122,9 +114,43 @@ export class Console extends React.Component {
         return (
             <div className="console">
                 <p className="code-output">
-                    {isLoaded ? `${items.output}` : 'Loading...'}
+                <MultiLineText text={isLoaded ? items.output : "Loading..."}></MultiLineText>
                 </p>
             </div>
+        )
+    }
+}
+
+class MultiLineText extends React.Component {
+    render() {
+        var { text } = this.props
+
+        return (
+            text.split("\n").map((text, idx) => {
+                return (<span key={idx}>
+                    {text}<br/>
+                    </span>)
+                }
+            )
+        )
+    }
+}
+
+class Options extends React.Component {
+    render() {
+        var { set_example, run_code } = this.props
+
+        return (
+            <div className="options">
+                    <label htmlFor="example-selector">Examples:</label>
+                    <select name="example-selector" onChange={set_example}>
+                        <option value="FizzBuzz">FizzBuzz</option>
+                        <option value="Variables">Variables</option>
+                        <option value="Loops">Loops</option>
+                        <option value="Functions">Functions</option>
+                    </select>
+                    <button className="run-button" type="button" onClick={run_code}>Run</button>
+                </div>
         )
     }
 }
