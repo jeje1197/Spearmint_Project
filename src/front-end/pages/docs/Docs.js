@@ -1,4 +1,5 @@
 import './Docs.css'
+import PrimitiveSection from './sections/Primitives'
 
 export default function Docs() {
     return (
@@ -27,37 +28,6 @@ function Body() {
     return (
         <div className="body">
             <PrimitiveSection/>
-        </div>
-    )
-}
-
-function PrimitiveSection() {
-    return (
-        <div>
-            <h2>Primitives</h2>
-            <section>
-                <p>
-                    In Spearmint, a primitive (primitive value, primitive data type) is
-                    data that is not an object and has no methods
-                    or properties. There are 3 primitive data types:
-                    <ul>
-                        <li>number</li>
-                        <li>string</li>
-                        <li>null</li>
-                    </ul>
-                </p>
-
-                <p>
-                    Most of the time, a primitive value is represented directly at the
-                    lowest level of the language implementation.
-                </p>
-
-                <p>
-                    All primitives are immutable, meaning you cannot change their values
-                    or call methods on them. Do not confuse this with assigning a value to
-                    a variable.
-                </p>
-            </section>
         </div>
     )
 }
