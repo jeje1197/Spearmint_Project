@@ -5,6 +5,8 @@ import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/theme-twilight";
 import "ace-builds/src-noconflict/ext-language_tools";
 
+import { examples } from './examples'; // Map containing the example code
+
 
 export class CodeEditor extends React.Component {
 
@@ -16,6 +18,7 @@ export class CodeEditor extends React.Component {
 
         this.run_code = this.run_code.bind(this)
         this.set_editor_code = this.set_editor_code.bind(this)
+        this.set_example = this.set_example.bind(this)
     }
 
     communicateWithApi(source_code) {
@@ -38,8 +41,9 @@ export class CodeEditor extends React.Component {
 
     componentDidMount() {
         console.log("mounted")
-        this.set_editor_code('print("Spearmint template output")')
-        this.communicateWithApi('print("Spearmint template output")')
+        const first_example = examples.get('FizzBuzz')
+        this.set_editor_code(first_example)
+        this.communicateWithApi(first_example)
     }
 
     // Must bind to context 'this'
@@ -50,6 +54,11 @@ export class CodeEditor extends React.Component {
 
     set_editor_code(sample_code) {
         this.aceRef.current.editor.getSession().setValue(sample_code)
+    }
+
+    set_example(event) {
+        console.log("Example changed:", event.target.value, examples.get(event.target.value))
+        this.set_editor_code(examples.get(event.target.value))
     }
 
     render() {
@@ -84,7 +93,7 @@ export class CodeEditor extends React.Component {
     
                 <div className="options">
                     <label htmlFor="example-selector">Examples:</label>
-                    <select name="example-selector" id="example-selector" onChange={(event) => console.log(event.target.value)}>
+                    <select name="example-selector" onChange={this.set_example}>
                         <option value="FizzBuzz">FizzBuzz</option>
                         <option value="Variables">Variables</option>
                         <option value="Loops">Loops</option>
