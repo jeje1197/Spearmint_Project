@@ -1,23 +1,10 @@
 .App {
   font-size: larger;
+  width: inherit;
+  height: inherit;
 }
 
 .App code {
   background-color: #e2e2e2;
   padding: 3px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
