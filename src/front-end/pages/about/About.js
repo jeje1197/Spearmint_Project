@@ -21,9 +21,9 @@ function AboutBody() {
                 dynamic-typing and evaluation.
             </p>
             <p>
-                This project features a full-stack web application with an online code editor
+                This project features a full-stack web application with an online code editor/interpreter
                 for users to write and test their code without the need to download the Spearmint 
-                development package
+                development package.
             </p>
         </div>
     )

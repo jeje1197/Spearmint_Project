@@ -67,25 +67,27 @@ export default class CodeEditor extends React.Component {
             <div>
                 <h1>Spearmint Code Editor</h1>
                 <section className="introduction">
-                    <p>Spearmint is a high-level, dynamically-typed programming language.</p>
+                    <p>Write code and test it here!</p>
                 </section>
                 <hr/>
             
                 <div className="CodeEditor">
                     <AceEditor
                         ref={this.aceRef}
+                        height="100%"
                         className="editor"
                         placeholder="Enter code here"
                         mode="javascript"
                         theme="twilight"
-                        fontSize={20}
+                        fontSize={16}
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
                         setOptions={{
-                        showLineNumbers: true,
-                        tabSize: 4,
-                        }}/>
+                            showLineNumbers: true,
+                            tabSize: 4,
+                        }}
+                    />
 
                     <Console ref={this.consoleRef}/>
                 </div>
