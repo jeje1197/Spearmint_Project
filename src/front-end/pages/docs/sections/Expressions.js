@@ -1,6 +1,9 @@
-import Tab from '../Tab'
+import './Expressions.css'
+import { operatorRowData } from './OperatorData'
+
 
 export default function ExpressionSection() {
+    console.log(operatorRowData)
     return (
         <div>
             <h2><u>Expressions</u></h2>
@@ -31,14 +34,24 @@ export default function ExpressionSection() {
                 <h3>Operators</h3>
                 <p>Here is a list of the operators available in the Spearmint Language.</p>
 
-                <p><Tab/>=</p>
-                <Tab/><Tab/><code>var name: "John"</code>
-
-                <p><Tab/>+</p>
-                <Tab/><Tab/><code>var age: "28"</code>
-
-                <p><Tab/>null</p>
-                <Tab/><Tab/><code>var nullvar: "null"</code>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Operator</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+                        {operatorRowData.map((rowElements, idx) => {
+                            return (
+                                <tr key={idx}>
+                                    <td><code>{rowElements[0]}</code></td>
+                                    <td>{rowElements[1]}</td>
+                                    <td><code>{rowElements[2]}</code></td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </section>
         </div>
     )
