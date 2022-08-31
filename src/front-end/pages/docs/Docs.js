@@ -1,6 +1,10 @@
 import './Docs.css'
 import ExpressionSection from './sections/Expressions'
+import FunctionSection from './sections/Functions'
+import IfStatementSection from './sections/IfStatements'
+import LoopSection from './sections/Loops'
 import PrimitiveSection from './sections/Primitives'
+import VariableSection from './sections/Variables'
 
 export default function Docs() {
     return (
@@ -27,9 +31,18 @@ function Intro() {
 
 function Body() {
     return (
-        <div className="body">
+        <div className="Docs">
             <PrimitiveSection/>
+            <hr/>
             <ExpressionSection/>
+            <hr/>
+            <VariableSection/>
+            <hr/>
+            <IfStatementSection/>
+            <hr/>
+            <LoopSection/>
+            <hr/>
+            <FunctionSection/>
         </div>
     )
 }

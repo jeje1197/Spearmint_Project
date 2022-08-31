@@ -3,7 +3,6 @@ import { operatorRowData } from './OperatorData'
 
 
 export default function ExpressionSection() {
-    console.log(operatorRowData)
     return (
         <div>
             <h2><u>Expressions</u></h2>
@@ -32,7 +31,7 @@ export default function ExpressionSection() {
                 </p>
 
                 <h3>Operators</h3>
-                <p>Here is a list of the operators available in the Spearmint Language.</p>
+                <p>Here is a list of the operators available in the Spearmint Language:</p>
 
                 <table>
                     <tbody>
@@ -52,6 +51,9 @@ export default function ExpressionSection() {
                         })}
                     </tbody>
                 </table>
+
+                <p><code>true</code> is treated as the number <code>1</code> in Spearmint.
+                Similarly to the C Language.</p>
             </section>
         </div>
     )

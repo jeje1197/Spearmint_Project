@@ -1,11 +1,7 @@
-.body {
+.Docs {
     padding: 3rem
 }
 
-section {
+.Docs section {
     padding-left: 20px;
-}
-
-code {
-    background-color: #e2e2e2;
 }

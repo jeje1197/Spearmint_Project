@@ -23,8 +23,7 @@ export default function PrimitiveSection() {
 
                 <p>
                     All primitives are immutable, meaning you cannot change their values
-                    or call methods on them. Do not confuse this with assigning a value to
-                    a variable.
+                    or call methods on them.
                 </p>
 
                 <h3>Examples</h3>
@@ -33,10 +32,10 @@ export default function PrimitiveSection() {
                 <Tab/><Tab/><code>var name: "John"</code>
 
                 <p><Tab/>number</p>
-                <Tab/><Tab/><code>var age: "28"</code>
+                <Tab/><Tab/><code>var age: 28</code>
 
                 <p><Tab/>null</p>
-                <Tab/><Tab/><code>var nullvar: "null"</code>
+                <Tab/><Tab/><code>var nullvar: null</code>
             </section>
         </div>
     )

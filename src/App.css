@@ -2,7 +2,8 @@
   font-size: larger;
 }
 
-.App code{
+.App code {
+  background-color: #e2e2e2;
   padding: 3px;
 }
 
