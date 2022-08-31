@@ -3,7 +3,7 @@ import Tab from '../Tab'
 export default function PrimitiveSection() {
     return (
         <div>
-            <h2>Primitives</h2>
+            <h2><u>Primitives</u></h2>
             <section>
                 <p>
                     In Spearmint, a primitive (primitive value, primitive data type) is
@@ -28,14 +28,15 @@ export default function PrimitiveSection() {
                 </p>
 
                 <h3>Examples</h3>
-                <p>string</p>
-                <Tab/><code>var name: "John"</code>
 
-                <p>number</p>
-                <Tab/><code>var age: "28"</code>
+                <p><Tab/>string</p>
+                <Tab/><Tab/><code>var name: "John"</code>
 
-                <p>null</p>
-                <Tab/><code>var nullvar: "null"</code>
+                <p><Tab/>number</p>
+                <Tab/><Tab/><code>var age: "28"</code>
+
+                <p><Tab/>null</p>
+                <Tab/><Tab/><code>var nullvar: "null"</code>
             </section>
         </div>
     )

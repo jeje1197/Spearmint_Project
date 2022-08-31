@@ -1,4 +1,5 @@
 import './Docs.css'
+import ExpressionSection from './sections/Expressions'
 import PrimitiveSection from './sections/Primitives'
 
 export default function Docs() {
@@ -6,7 +7,7 @@ export default function Docs() {
         <>
             <Intro/>
             <hr/>
-            <Body/>  
+            <Body/>
         </>
     )
 }
@@ -28,6 +29,7 @@ function Body() {
     return (
         <div className="body">
             <PrimitiveSection/>
+            <ExpressionSection/>
         </div>
     )
 }
