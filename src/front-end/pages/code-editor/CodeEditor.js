@@ -74,7 +74,7 @@ export default class CodeEditor extends React.Component {
                 <div className="CodeEditor">
                     <AceEditor
                         ref={this.aceRef}
-                        height="100%"
+                        // height="100%"
                         className="editor"
                         placeholder="Enter code here"
                         mode="javascript"
